@@ -46,39 +46,43 @@ for i  in (1,Nspins):
     Mz = Mz + Szi / Nspins
 
 #funciones
-c1 = np.zeros(1,N)
-c2 = np.zeros(1,N)
-c3 = np.zeros(1,N)
-c4 = np.zeros(1,N)
-PromMx = np.zeros(1,N)
-PromMZ = np.zeros(1,N)
+c1 = np.zeros([1,N])
+c2 = np.zeros([1,N])
+c3 = np.zeros([1,N])
+c4 = np.zeros([1,N])
+PromMx = np.zeros([1,N])
+PromMZ = np.zeros([1,N])
 
-# for n in range(1,N):
-#     if n == 1:
-#         psi = Psi_0
-#         c1(n) = psi(1)
-#         c2(n) = psi(2)
-#         c3(n) = psi(3)
-#         c4(n) = psi(4)
-#         PromMx(n) = np.transpose(psi) * Mx * psi
-#         PromMZ(n) = np.transpose(psi) * Mz * psi
-#     else:
-#         psi =  math.expm(-1*i*H/hbar*dt)*psi
+for n in range(1,N):
+    if n == 1:
+        psi = Psi_0
+        c1[0][n] = psi[0]
+        c2[0][n] = psi[1]
+        c3[0][n] = psi[2]
+        c4[0][n] = psi[3]
+        print(psi.shape)
+        print(Mx.shape)
+        print(Mz.shape)
+        print(np.transpose(psi).shape)
+        PromMx[n] = np.transpose(psi) * Mx * psi
+        PromMZ[n] = np.transpose(psi) * Mz * psi
+    else:
+        psi =  math.expm(-1*i*H/hbar*dt)*psi
     
 
-#     #componentes de la funcion de onda
-#     c1(n) = psi(1)
-#     c2(n) = psi(2)
-#     c3(n) = psi(3)
-#     c4(n) = psi(4)
-#     PromMx(n) = np.conj().transpose(psi)*Mx*psi 
-#     PromMZ(n) = np.conj().transpose(psi)*Mz*psi
+    #componentes de la funcion de onda
+    c1[0][n] = psi[0]
+    c2[0][n] = psi[1]
+    c3[0][n] = psi[2]
+    c4[0][n] = psi[3]
+    PromMx[n] = np.conj().transpose(psi)*Mx*psi 
+    PromMZ[n] = np.conj().transpose(psi)*Mz*psi
 
-#     #probabilidades
-#     p1 = abs(c1)**2
-#     p2 = abs(c2)**2
-#     p3 = abs(c3)**2
-#     p4 = abs(c4)**2
+    #probabilidades
+    p1 = abs(c1)**2
+    p2 = abs(c2)**2
+    p3 = abs(c3)**2
+    p4 = abs(c4)**2
     
 
 
