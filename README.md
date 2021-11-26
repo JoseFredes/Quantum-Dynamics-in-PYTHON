@@ -9,8 +9,4 @@ For install packages:
 -pip install math
 -pip install matplotlib.pyplot
 
-For getSci and getconjugated:
--From " program name (no need .py) " Import " function name" 
 
-Test.py is only for testing new functions.
-getTconjugated is not really necesary.
