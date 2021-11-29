@@ -9,4 +9,6 @@ For install packages:
 -pip install math
 -pip install matplotlib.pyplot
 
-
+Contributors: 
+Owner                 Ariel Norambuena
+Student assistant     José Fredes
